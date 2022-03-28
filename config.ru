@@ -15,3 +15,5 @@ use Rack::JSONBodyParser
 run ApplicationController
 use UsersController
 use ProductsController
+use CommentsController
+use WishlistItemsController
