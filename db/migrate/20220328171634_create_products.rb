@@ -4,8 +4,8 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string :brand
       t.string :name
       t.string :ingredients
-      t.string :claim
-      t.integer :price
+      t.string :concerns
+      t.float :price
       t.timestamps
     end
   end

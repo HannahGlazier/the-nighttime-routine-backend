@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_28_171652) do
+ActiveRecord::Schema.define(version: 2022_03_28_214046) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2022_03_28_171652) do
     t.string "brand"
     t.string "name"
     t.string "ingredients"
-    t.string "claim"
-    t.integer "price"
+    t.string "concerns"
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_03_28_171652) do
   end
 
   create_table "wishlist_items", force: :cascade do |t|
+    t.string "name"
     t.integer "user_id"
     t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
