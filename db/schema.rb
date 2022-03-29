@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2022_03_28_214046) do
   end
 
   create_table "wishlist_items", force: :cascade do |t|
-    t.string "name"
     t.integer "user_id"
     t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false

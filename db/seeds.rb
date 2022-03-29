@@ -2,7 +2,7 @@ puts "Clearing old data..."
 User.destroy_all
 Product.destroy_all
 Comment.destroy_all
-Wishlist_item.destroy_all
+WishlistItem.destroy_all
 
 puts "🌱 Seeding Products"
 Product.create(brand: "COSRX", name: "Advanced Snail 96 Mucin Power Essence", ingredients: "Snail Secretion Filtrate, Betaine, Butylene Glycol, 1,2-Hexanediol, Sodium Polyacrylate, Phenoxyethanol, Sodium Hyaluronate, Allantoin, Ethyl Hexanediol, Carbomer, Panthenol, Arginine", concerns: "damaged barrier, dry skin", price: 17.64)
@@ -23,15 +23,14 @@ Product.create(brand: "Paula's Choice", name: "CLINICAL 1% Retinol Treatment", i
 
 Product.create(brand: "The Ordinary", name: "Squalane Cleanser", ingredients: "Squalane, Aqua (Water), Coco-Caprylate/Caprate, Glycerin, Sucrose Stearate, Ethyl Macadamiate, Caprylic/Capric Triglyceride, Sucrose Laurate, Hydrogenated Starch Hydrolysate, Sucrose Dilaurate, Sucrose Trilaurate, Polyacrylate Crosspolymer-6, Isoceteth-20, Sodium Polyacrylate, Tocopherol, Hydroxymethoxyphenyl Decanone, Trisodium Ethylenediamine Disuccinate, Malic Acid, Ethylhexylglycerin, Chlorphenesin", concerns: "pores, dryness", price: 7.90)
 
-Product.create(brand: "Biossance", name: "Squalane + BHA Pore-Minimizing Toner", ingredients: "Water/Aqua/Eau, Salix Alba (Willow) Bark Extract, Glycerin, Cucumis Sativus (Cucumber) Fruit Water, Squalane, Sorbitan Oleate Decylglucoside Crosspolymer, Betaine Salicylate, Microcitrus Australasica Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Water, Lavandula Angustifolia (Lavender) Flower Water, Sodium Hyaluronate, Melia Azadirachta Leaf Extract, Melissa Officinalis Leaf Oil, Curcuma Longa (Turmeric) Root Extract, Coccinia Indica Fruit Extract, Melia Azadirachta Flower Extract, Solanum Melongena (Eggplant) Fruit Extract, Ocimum Basilicum (Basil) Flower/Leaf Extract, Amber Powder, Corallina Officinalis Extract, Sodium Chloride, Citric Acid, Sodium Gluconate, Sodium Benzoate, Potassium Sorbate, Pelargonium Graveolens Oil, Citronellol", concerns: "pores, dryness, oiliness,", price: 28)
+Product.create(brand: "Biossance", name: "Squalane + BHA Pore-Minimizing Toner", ingredients: "Water/Aqua/Eau, Salix Alba (Willow) Bark Extract, Glycerin, Cucumis Sativus (Cucumber) Fruit Water, Squalane, Sorbitan Oleate Decylglucoside Crosspolymer, Betaine Salicylate, Microcitrus Australasica Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Water, Lavandula Angustifolia (Lavender) Flower Water, Sodium Hyaluronate, Melia Azadirachta Leaf Extract, Melissa Officinalis Leaf Oil, Curcuma Longa (Turmeric) Root Extract, Coccinia Indica Fruit Extract, Melia Azadirachta Flower Extract, Solanum Melongena (Eggplant) Fruit Extract, Ocimum Basilicum (Basil) Flower/Leaf Extract, Amber Powder, Corallina Officinalis Extract, Sodium Chloride, Citric Acid, Sodium Gluconate, Sodium Benzoate, Potassium Sorbate, Pelargonium Graveolens Oil, Citronellol", concerns: "pores, dryness, oiliness", price: 28)
 
 Product.create(brand: "Topicals", name: "Faded Serum for Dark Spots & Discoloration", ingredients: "Water/Aqua/Eau, Caprylic/Capric Triglyceride, Glycerin, Niacinamide, Glyceryl Stearate, Tranexamic Acid, Butyrospermum Parkii (Shea) Butter, Simmondsia Chinensis (Jojoba) Seed Oil, Alpha-Arbutin, Behenyl Alcohol, Kojic Acid Dipalmitate, Gluthathione, Turmeric Butter, Ethylene Brassylate, Dimethylmethoxy Chromanyl Palmitate, Azelaic Acid, Glycyrrhiza Uralensis (Licorice) Root Extract, Melatonin, Phytic Acid, Squalane, Allantoin, Centella Asiatica Leaf Extract, Tocopherol, Arginine, Lecithin, Glycine Soja (Soybean) Sterols, Cetyl Palmitate, Ethylhexylglycerin, Sclerotium Gum, Zinc Ricinoleate, Cetearyl Alcohol, Sodium Lauroyl Sarcosinate, Tetrahydroxypropyl Ethylenediamine, Trisodium Ethylenediamine Disuccinate, Ceteareth-12, Ceteareth-20, Phenoxyethano", concerns: "dark spots, redness, acne", price: 38)
 
 puts "🌱 Seeding Users"
 problem_areas = ["dry skin", "acne", "dark spots", "fine lines", "wrinkles", "damaged barrier", "redness"]
-5.times do 
-    User.create(name: Faker::Name.name, problem_area: problem_areas.sample)
-end
+User.create(name: Faker::Name.name, problem_area: problem_areas.sample)
+
 
 
 puts "🌱 Seeding Comments"
@@ -40,9 +39,8 @@ puts "🌱 Seeding Comments"
 end
 
 puts "🌱 Seeding Wishlist Items"
-20.times do
-    Wishlist_item.create(user_id: User.ids.sample, product_id: Product.ids.sample, name: Product.pluck(:name).sample)
-end
+WishlistItem.create(user_id: User.ids.uniq.sample, product_id: Product.ids.uniq.sample)
+
 
 
 puts "✅ Done seeding!"
