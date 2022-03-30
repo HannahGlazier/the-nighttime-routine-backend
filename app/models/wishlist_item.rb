@@ -3,7 +3,8 @@ class WishlistItem < ActiveRecord::Base
     belongs_to :product
 
     def overview
-        self.product
+        self.product 
+        self.id
     end
 
     def details
