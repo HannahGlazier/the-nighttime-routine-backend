@@ -12,8 +12,9 @@ end
 use Rack::JSONBodyParser
 
 # Our application
-run ApplicationController
+
 use UsersController
 use ProductsController
 use CommentsController
 use WishlistItemsController
+run ApplicationController
