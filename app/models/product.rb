@@ -8,4 +8,13 @@ class Product < ActiveRecord::Base
         
     end
 
+    # def add(wishlist_item)
+    #     @new_wishlist = WishlistItem.create(wishlist_item)
+    #     self.wishlist_items << @new_wishlist
+    # end
+
+    # def create_new()
+    #     Product.create(params)
+    # end
+
 end

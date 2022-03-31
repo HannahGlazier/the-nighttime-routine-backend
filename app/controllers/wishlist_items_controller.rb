@@ -17,7 +17,6 @@ class WishlistItemsController < ApplicationController
             only: [:id],
             include: [:product]
         )
-        # wishlist.details.to_json
         
     end
 
@@ -32,6 +31,7 @@ class WishlistItemsController < ApplicationController
             include: [:product]
         )
     end
+
 
     delete '/wishlist_items/:id' do
         # product = WishlistItem.find(params[:id]).to_json(
