@@ -1,5 +1,5 @@
 # The Nighttime Routine 
-The Nighttime Routine is a space for skincare lovers to find and share products and plan future purchases with their own wishlist. This application's backend was built with Ruby and ActiveRecord. After cloning, the backend can be launched by running `rake db:migrate` to set up the database, `rake db:seed` to install some initial seed data, `bundle install` to install necessary gems, and finally `bundle exec rake server` to launch the server.
+The Nighttime Routine is a space for skincare lovers to find and share products and plan future purchases with their own wishlist. This application's backend was built with Ruby and Sinatra. After cloning, the backend can be launched by running `rake db:migrate` to set up the database, `rake db:seed` to install some initial seed data, `bundle install` to install necessary gems, and finally `bundle exec rake server` to launch the server.
 
 ## Frontend
 This application's frontend was built with HTML, Javascript, React, CSS, and Semantic UI. After cloning, the frontend can be launched by running `npm install` to install necessary dependencies and `npm start` to launch the frontend server. 
