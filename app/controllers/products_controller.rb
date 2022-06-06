@@ -7,8 +7,6 @@ class ProductsController < ApplicationController
         )
     end
 
-
-
     get '/product/:id' do 
         product = Product.find(params[:id])
         product.to_json(

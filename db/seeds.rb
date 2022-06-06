@@ -1,10 +1,12 @@
 puts "Clearing old data..."
+
 User.destroy_all
 Product.destroy_all
 Comment.destroy_all
 WishlistItem.destroy_all
 
 puts "🌱 Seeding Products"
+
 Product.create(brand: "COSRX", name: "Advanced Snail 96 Mucin Power Essence", ingredients: "Snail Secretion Filtrate, Betaine, Butylene Glycol, 1,2-Hexanediol, Sodium Polyacrylate, Phenoxyethanol, Sodium Hyaluronate, Allantoin, Ethyl Hexanediol, Carbomer, Panthenol, Arginine", concerns: "damaged barrier, dry skin", price: 17.64)
 
 Product.create(brand: "Glow Recipe", name: "Watermelon Glow Niacinamide Dew Drops", ingredients: "Aqua/Water/Eau, Propanediol, Glycereth-26, Glycerin, Niacinamide, 2,3-Butanediol, 1,2-Hexanediol, Cetyl Ethylhexanoate, Citrullus Lanatus Fruit Extract, Sodium Hyaluronate, Eclipta Prostrata Extract, Melia Azadirachta Leaf Extract, Polyglyceryl-3 Methylglucose Distearate, Tromethamine, Glyceryl Stearate, Carbomer, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Ethylhexylglycerin, Xanthan Gum, Polyquaternium-51, Moringa Oleifera Seed Oil, Fragrance/Parfum, Benzyl Benzoate", concerns: "dry skin, uneven skin tone", price: 34)
@@ -43,23 +45,18 @@ Product.create(brand: "Summer Fridays", name: "Dream Oasis Deep Hydration Serum"
 
 Product.create(brand: "Youth to the People", name: "Triple Peptide + Cactus Hydrating + Firming Oasis Serum", ingredients: "Water/Aqua/Eau, Butylene Glycol, Glycerin, Pentylene Glycol, Opuntia Ficus-Indica Stem (Prickly Pear Cactus) Extract, Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-28, Sodium Hyaluronate, Hydrolyzed Sodium Hyaluronate, Sodium Hyaluronate Crosspolymer, Sodium Acetylated Hyaluronate, Synthetic Sapphire, Citrullus Lanatus (Watermelon) Fruit Extract, Lens Esculenta (Lentil) Fruit Extract, Pyrus Malus (Apple) Fruit Extract, Nephelium Lappaceum Peel (Rambutan) Extract, Sodium Pca, Glutathione, Malachite Extract, Citric Acid, Hydroxypropyl Methylcellulose, Tetrasodium Glutamate Diacetate, Polyglutamic Acid, 1,2-Hexandiol, Caprylyl Glycol, Sodium Lactate, Carbomer, Propanediol, Polysorbate 20, Hydroxyethylcellulose, Xanthan Gum, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Potassium Sorbate, Disodium Phosphate, Polysorbate 60, Benzyl Alcohol, Sodium Hydroxide, Glyceryl Caprylate, Sodium Formate, Sodium Glycolate, Sodium Phosphate, Benzoic Acid", concerns: "fine lines, wrinkles, dryness, loss of elasticity", price: 54)
 
-# Product.create(brand: "", name: "", ingredients: "", concerns: "", price: )
-
-
 puts "🌱 Seeding Users"
+
 problem_areas = ["dry skin", "acne", "dark spots", "fine lines", "wrinkles", "damaged barrier", "redness"]
 User.create(name: Faker::Name.name, problem_area: problem_areas.sample)
 
-
-
 puts "🌱 Seeding Comments"
+
 10.times do 
     Comment.create(content: Faker::Lorem.sentence, user_id: User.ids.sample, product_id: Product.ids.sample)
 end
 
 puts "🌱 Seeding Wishlist Items"
 WishlistItem.create(user_id: User.ids.uniq.sample, product_id: Product.ids.uniq.sample)
-
-
 
 puts "✅ Done seeding!"
